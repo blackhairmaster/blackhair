@@ -78,7 +78,7 @@ export default function Header() {
 
           {/* right side */}
           <div className="flex items-center gap-3">
-            <Button to="/contact" className="hidden px-6 py-3 md:inline-flex">
+            <Button to="/contact" size="sm" className="hidden md:inline-flex">
               Записаться
             </Button>
 

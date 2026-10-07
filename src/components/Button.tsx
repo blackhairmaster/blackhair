@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "outline" | "light" | "ghost";
+type Variant = "primary" | "solidLight" | "outline" | "light";
+type Size = "sm" | "md";
 
 export interface ButtonProps {
   children: ReactNode;
@@ -14,24 +15,33 @@ export interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit";
   variant?: Variant;
+  size?: Size;
   arrow?: boolean;
   className?: string;
   disabled?: boolean;
   ariaLabel?: string;
 }
 
+/** No color and no padding here — those belong to variants/sizes only,
+ *  so there are never two competing utilities of the same kind. */
 const base =
-  "group/btn relative inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-[13px] font-medium tracking-[0.06em] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:cursor-not-allowed disabled:opacity-60";
+  "group/btn relative inline-flex items-center justify-center gap-3 rounded-full font-medium tracking-[0.06em] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:cursor-not-allowed disabled:opacity-60";
+
+const sizes: Record<Size, string> = {
+  sm: "px-6 py-3 text-[12.5px]",
+  md: "px-7 py-3.5 text-[13px]",
+};
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-dark text-white hover:bg-accent hover:shadow-[0_14px_34px_-18px_rgba(24,23,22,0.9)]",
+  /** Solid white on dark sections — dark text, accent on hover. */
+  solidLight:
+    "bg-white text-dark hover:bg-accent hover:text-white hover:shadow-[0_14px_34px_-18px_rgba(24,23,22,0.6)]",
   outline:
     "border border-primary/25 text-primary hover:border-primary hover:bg-primary hover:text-white",
   light:
     "border border-white/30 text-white hover:bg-white hover:text-dark",
-  ghost:
-    "px-0 py-0 text-primary hover:text-accent",
 };
 
 export default function Button({
@@ -41,12 +51,13 @@ export default function Button({
   onClick,
   type = "button",
   variant = "primary",
+  size = "md",
   arrow = false,
   className,
   disabled,
   ariaLabel,
 }: ButtonProps) {
-  const classes = cn(base, variants[variant], className);
+  const classes = cn(base, sizes[size], variants[variant], className);
 
   const content = (
     <>

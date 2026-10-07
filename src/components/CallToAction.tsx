@@ -31,7 +31,7 @@ export default function CallToAction() {
         </Reveal>
 
         <Reveal delay={0.18} className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <Button to="/contact" variant="primary" className="bg-white text-dark hover:bg-accent hover:text-white">
+          <Button to="/contact" variant="solidLight">
             {siteData.cta.button}
           </Button>
           <Button to="/services" variant="light">
