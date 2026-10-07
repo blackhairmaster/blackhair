@@ -130,14 +130,31 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 
 ## 🌐 Публикация
 
+### GitHub Pages (настроено)
+
+Деплой автоматический: каждый push в ветку `main` запускает GitHub Actions
+(`.github/workflows/deploy.yml`), который собирает сайт и публикует его на
+**https://blackhairmaster.github.io/blackhair/**.
+
+- `BASE_PATH=/<имя-репозитория>/` подставляется в сборку автоматически — базовый
+  путь прописывать руками не нужно. Локально и на Vercel сайт собирается с `/`.
+- Требования: Settings → Pages → Source: **GitHub Actions**; у токена/прав —
+  `Contents: Read and write` + `Workflows: Read and write`.
+- **Форма записи на Pages не отправляется** (там нет serverless `/api/contact`) —
+  нужен Vercel либо внешний сервис (Formspree/Web3Forms).
+
+### Любой другой хостинг
+
 1. `npm run build` → папка `dist/`.
 2. Загрузите содержимое `dist/` на хостинг (в корень сайта).
 3. Загрузите реальные фотографии в `images/...` (файловый менеджер хостинга).
 4. **SPA-фallback** обязателен, иначе внутренние страницы (/about …) не откроются
    напрямую:
+   - GitHub Pages — `public/404.html` уже лежит в проекте (редирект-механика);
    - Netlify — `public/_redirects` уже лежит в проекте;
    - Vercel — `vercel.json` уже лежит в проекте;
    - другой хостинг — настройте rewrite `/* → /index.html`.
+5. Если сайт живёт не в корне домена — соберите с `BASE_PATH=/путь/`.
 
 ---
 
