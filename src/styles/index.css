@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   THEME / DESIGN TOKENS
+   Edit colors here — they are used across the whole site.
+---------------------------------------------------------------- */
+@theme {
+  --color-background: #f7f5f2;
+  --color-surface: #ffffff;
+  --color-primary: #181818;
+  --color-secondary: #6f6b66;
+  --color-accent: #8c7765;
+  --color-dark: #181716;
+  --color-line: #e5e0d9;
+  --color-danger: #a8453a;
+
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------
+   BASE
+---------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
+   LAYOUT HELPERS
+---------------------------------------------------------------- */
+.page {
+  width: 100%;
+  max-width: 1480px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding-inline: 3.5rem;
+  }
+}
+
+.section {
+  padding-block: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 7rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding-block: 8.5rem;
+  }
+}
+
+/* ---------------------------------------------------------------
+   TYPOGRAPHY HELPERS
+---------------------------------------------------------------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+/* Hero headline — sized so long placeholder names never overflow */
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.75;
+  color: var(--color-secondary);
+}
+
+/* ---------------------------------------------------------------
+   DECOR / TEXTURE
+---------------------------------------------------------------- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.rule {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-line);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(24, 24, 24, 0.25) transparent;
+}
+
+/* ---------------------------------------------------------------
+   FORM CONTROLS
+---------------------------------------------------------------- */
+.field {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid var(--color-line);
+  padding: 0.9rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  transition:
+    border-color 0.3s var(--ease-premium),
+    background-color 0.3s var(--ease-premium);
+}
+
+.field::placeholder {
+  color: #a9a49d;
+}
+
+.field:hover {
+  border-color: #cfc8bf;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.field[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
