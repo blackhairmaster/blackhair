@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
@@ -91,8 +92,8 @@ export default function Gallery({ variant = "page" }: GalleryProps) {
 
           {variant === "preview" ? (
             <Reveal delay={0.15} className="md:mb-2 md:self-end">
-              <a
-                href="/gallery"
+              <Link
+                to="/gallery"
                 className="group inline-flex items-center gap-2 border-b border-primary/25 pb-1 text-[13px] font-medium tracking-[0.04em] text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
               >
                 Смотреть все работы
@@ -102,7 +103,7 @@ export default function Gallery({ variant = "page" }: GalleryProps) {
                 >
                   →
                 </span>
-              </a>
+              </Link>
             </Reveal>
           ) : (
             <Reveal delay={0.15} className="md:mb-2 md:self-end">

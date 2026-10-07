@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Перенаправление…</title>
+    <!--
+      GitHub Pages SPA fallback (https://github.com/rafgraph/spa-github-pages).
+      GitHub Pages is static-only: a deep link like /blackhair/about returns 404.
+      This script redirects the browser to /blackhair/?/about, and the decoder
+      script in index.html restores the clean URL before React boots.
+
+      `pathSegmentsToKeep` = number of path segments in the site's base path:
+      1 for a project page (/blackhair/), 0 for a root/custom domain (/).
+    -->
+    <script>
+      var pathSegmentsToKeep = 1; // "/blackhair/" → 1 segment; change to 0 for root domain
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") +
+          "/?/" +
+          l.pathname
+            .slice(1)
+            .split("/")
+            .slice(pathSegmentsToKeep)
+            .join("/")
+            .replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

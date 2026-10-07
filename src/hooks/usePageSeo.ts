@@ -29,7 +29,8 @@ export function usePageSeo(options?: { title?: string; description?: string; pat
     setMeta('meta[property="og:type"]', "property", "og:type", "website");
 
     if (path) {
-      const url = `${window.location.origin}${path}`;
+      const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+      const url = `${window.location.origin}${base}${path}`;
       setMeta('meta[property="og:url"]', "property", "og:url", url);
 
       let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');

@@ -93,7 +93,8 @@ export default function ContactForm() {
         // Simulated request while developing — no API key required.
         await new Promise((resolve) => setTimeout(resolve, 900));
       } else {
-        const response = await fetch("/api/contact", {
+        const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+        const response = await fetch(`${base}/api/contact`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),

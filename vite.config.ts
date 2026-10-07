@@ -4,6 +4,10 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  // Base path. Defaults to "/" (Vercel, Netlify, local).
+  // GitHub Actions sets BASE_PATH=/blackhair/ for project pages
+  // (https://blackhairmaster.github.io/blackhair/).
+  base: process.env.BASE_PATH || "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

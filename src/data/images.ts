@@ -8,31 +8,37 @@
  * See: public/images/README.md  (specs + generation prompts for every image)
  */
 
+/**
+ * Prefixes a public-folder path with the Vite base URL (`/` locally,
+ * `/blackhair/` on GitHub Pages) so images resolve in any deployment.
+ */
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const images = {
   master: {
-    hero: "/images/master/master-hero.jpg",
-    about: "/images/master/master-about.jpg",
+    hero: asset("images/master/master-hero.jpg"),
+    about: asset("images/master/master-about.jpg"),
   },
 
   services: {
-    keratinBotox: "/images/services/keratin-botox.jpg",
-    coldRepair: "/images/services/cold-repair.jpg",
-    nanoplasty: "/images/services/nanoplasty.jpg",
+    keratinBotox: asset("images/services/keratin-botox.jpg"),
+    coldRepair: asset("images/services/cold-repair.jpg"),
+    nanoplasty: asset("images/services/nanoplasty.jpg"),
   },
 
   gallery: [
-    "/images/gallery/work-01.jpg",
-    "/images/gallery/work-02.jpg",
-    "/images/gallery/work-03.jpg",
-    "/images/gallery/work-04.jpg",
-    "/images/gallery/work-05.jpg",
-    "/images/gallery/work-06.jpg",
-    "/images/gallery/work-07.jpg",
-    "/images/gallery/work-08.jpg",
-    "/images/gallery/work-09.jpg",
-    "/images/gallery/work-10.jpg",
-    "/images/gallery/work-11.jpg",
-    "/images/gallery/work-12.jpg",
+    asset("images/gallery/work-01.jpg"),
+    asset("images/gallery/work-02.jpg"),
+    asset("images/gallery/work-03.jpg"),
+    asset("images/gallery/work-04.jpg"),
+    asset("images/gallery/work-05.jpg"),
+    asset("images/gallery/work-06.jpg"),
+    asset("images/gallery/work-07.jpg"),
+    asset("images/gallery/work-08.jpg"),
+    asset("images/gallery/work-09.jpg"),
+    asset("images/gallery/work-10.jpg"),
+    asset("images/gallery/work-11.jpg"),
+    asset("images/gallery/work-12.jpg"),
   ],
 } as const;
 
