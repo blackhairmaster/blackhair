@@ -11,9 +11,9 @@ import { images } from "./images";
 export const siteData = {
   /* ---------------------------------------------------------- */
   master: {
-    name: "[MASTER_NAME]",
-    role: "Hair Artist",
-    city: "[CITY]",
+    name: "Лейла",
+    role: "Мастер по восстановлению волос",
+    city: "Сейчас Турция",
     tagline: "Создаю образ, который подходит именно вам.",
     description:
       "Персональный мастер по волосам: индивидуальный подход, аккуратная работа и результат, который выглядит естественно.",
@@ -21,9 +21,9 @@ export const siteData = {
 
   /* ---------------------------------------------------------- */
   seo: {
-    title: "[MASTER_NAME] — Hair Artist in [CITY]",
+    title: "Leila — Hair Artist in Turkey",
     description:
-      "[MASTER_DESCRIPTION] Персональный мастер по волосам: кератин, ботокс, холодное восстановление, нанопластика.",
+      "Лейла - Персональный мастер по волосам: кератин, ботокс, холодное восстановление, нанопластика.",
     image: images.master.hero,
     url: "https://example.com/",
   },
@@ -39,7 +39,7 @@ export const siteData = {
 
   /* ---------------------------------------------------------- */
   hero: {
-    eyebrow: "Hair Artist",
+    eyebrow: "мастер по волосам",
     image: images.master.hero,
     imageAlt: "Портрет мастера по волосам в студии",
     scrollLabel: "Листайте вниз",
@@ -62,9 +62,9 @@ export const siteData = {
       "Больше всего я ценю, когда клиент уходит не с «укладкой», а с ощущением, что волосы стали лучше — и это ощущение остаётся надолго.",
     ],
     stats: [
-      { value: "[YEARS_EXPERIENCE]", label: "Лет опыта" },
-      { value: "[CLIENTS_COUNT]", label: "Постоянных клиентов" },
-      { value: "[OTHER_STATISTIC]", label: "Другой показатель" },
+      { value: "3", label: "Года опыта" },
+      { value: "Больше 50", label: "Постоянных клиентов" },
+      { value: "Больше 5", label: "Городов и студий" },
     ],
     philosophyTitle: "Принципы работы",
     philosophy: [
@@ -92,8 +92,8 @@ export const siteData = {
       title: "Кератин / Ботокс",
       description:
         "Мягкое выравнивание и насыщение волос: убирает пушистость, возвращает мягкость и естественный блеск, не делая волосы тяжёлыми.",
-      duration: "[DURATION]",
-      price: "[PRICE]",
+      duration: "от 4 часов",
+      price: "зависит от длины волос",
       image: images.services.keratinBotox,
       imageAlt: "Гладкие блестящие волосы после процедуры кератина",
     },
@@ -104,8 +104,8 @@ export const siteData = {
       title: "Холодное восстановление",
       description:
         "Щадящая процедура без высоких температур: возвращает волосам плотность, эластичность и живую текстуру, возвращает ощущение ухоженности.",
-      duration: "[DURATION]",
-      price: "[PRICE]",
+      duration: "от 3 часов",
+      price: "зависит от длины волос",
       image: images.services.coldRepair,
       imageAlt: "Здоровые волосы средней длины с естественным блеском",
     },
@@ -116,8 +116,8 @@ export const siteData = {
       title: "Нанопластика",
       description:
         "Точное выравнивание структуры волос: очень гладкая, прямая поверхность с плотным блеском и аккуратной укладкой, которая держится долго.",
-      duration: "[DURATION]",
-      price: "[PRICE]",
+      duration: "от 2 часов",
+      price: "зависит от длины волос",
       image: images.services.nanoplasty,
       imageAlt: "Длинные гладкие тёмные волосы после нанопластики",
     },
@@ -185,7 +185,7 @@ export const siteData = {
 
   /* ---------------------------------------------------------- */
   social: {
-    instagram: "[INSTAGRAM_URL]",
+    instagram: "https://www.instagram.com/layla.pro.volosi/",
     facebook: "[FACEBOOK_URL]",
     tiktok: "[TIKTOK_URL]",
     whatsapp: "[WHATSAPP_URL]",
